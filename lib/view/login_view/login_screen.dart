@@ -107,7 +107,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     GetBuilder<LoginController>(builder: (context) {
                       return Button(
-                        isLoading: true,
+                        isLoading: controller.isLoading,
                         btnName: "Login",
                         onTap: controller.login,
                       );

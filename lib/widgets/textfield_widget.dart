@@ -68,7 +68,8 @@ class _CustomTextFeildState extends State<CustomTextFeild> {
       controller: widget.textEditingController,
       cursorColor: Colors.black,
       obscureText: widget.isPasswordField ? isVisible : false,
-      style: TextStyle(fontSize: 14, fontFamily: "Futura", color: Colors.black),
+      style:
+          TextStyle(fontSize: 14, fontFamily: "urbanist", color: Colors.black),
       maxLines: widget.maxLines,
       decoration: InputDecoration(
         filled: widget.filled,

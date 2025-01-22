@@ -26,11 +26,8 @@ class Button extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (isLoading)
-                  SizedBox(
+            child: isLoading
+                ? SizedBox(
                     height: 20,
                     width: 20,
                     child: CircularProgressIndicator(
@@ -38,15 +35,12 @@ class Button extends StatelessWidget {
                           AlwaysStoppedAnimation<Color>(AppColors.whiteColor),
                     ),
                   )
-                else
-                  Text(btnName,
-                      style: TextStyle(
-                          color: AppColors.whiteColor,
-                          fontFamily: "urbanist",
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700)),
-              ],
-            ),
+                : Text(btnName,
+                    style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontFamily: "urbanist",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700)),
           ),
         ),
       ),

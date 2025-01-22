@@ -1,10 +1,11 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hiring_task_1/controllers/userbase_controller.dart';
 import 'package:hiring_task_1/utils/app_colors.dart';
 import 'package:hiring_task_1/view/profile_view/profile_controller.dart';
+import 'package:hiring_task_1/widgets/app_cache_image.dart';
 import 'package:hiring_task_1/widgets/button.dart';
+import 'package:hiring_task_1/widgets/see_more.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -22,11 +23,6 @@ class ProfileScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Icon(Icons.arrow_back)),
                   Text(
                     'My Profile',
                     style: TextStyle(
@@ -55,9 +51,12 @@ class ProfileScreen extends StatelessWidget {
                         ))),
                         child: Column(
                           children: [
-                            CircleAvatar(
-                              radius: 60,
-                              child: Image.asset("assets/images/Ellipse.png"),
+                            AppCacheImage(
+                              imageUrl:
+                                  UserbaseController.userData.avatar ?? "",
+                              height: 120,
+                              width: 120,
+                              round: 100,
                             ),
                             SizedBox(
                               height: 12,
@@ -116,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w600),
                                 ),
                                 Text(
-                                  "\$9500",
+                                  "\$${UserbaseController.userData.earnings ?? 0}",
                                   style: TextStyle(
                                       color: AppColors.redColor,
                                       fontFamily: "urbanist",
@@ -151,13 +150,23 @@ class ProfileScreen extends StatelessWidget {
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600),
                                 ),
-                                Text(
-                                  "4.5",
-                                  style: TextStyle(
-                                      color: AppColors.redColor,
-                                      fontFamily: "urbanist",
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w700),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.star_rate_rounded,
+                                      color: Colors.amber,
+                                      size: 22,
+                                    ),
+                                    Text(
+                                      "${UserbaseController.userData.ratings ?? 0}",
+                                      style: TextStyle(
+                                          color: AppColors.redColor,
+                                          fontFamily: "urbanist",
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ],
                                 )
                               ],
                             ),
@@ -178,27 +187,8 @@ class ProfileScreen extends StatelessWidget {
                       SizedBox(
                         height: 12,
                       ),
-                      RichText(
-                          text: TextSpan(
-                        text:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ",
-                        style: TextStyle(
-                            color: Color(0xff424242),
-                            fontFamily: "urbanist",
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400),
-                        children: [
-                          TextSpan(
-                            recognizer: TapGestureRecognizer()..onTap = () {},
-                            text: " view more...",
-                            style: TextStyle(
-                                color: AppColors.redColor,
-                                fontFamily: "urbanist",
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700),
-                          )
-                        ],
-                      )),
+                      TextWithSeeMore(
+                          text: UserbaseController.userData.bio ?? ""),
                       SizedBox(
                         height: 24,
                       ),
@@ -300,6 +290,9 @@ class ProfileScreen extends StatelessWidget {
                             color: AppColors.blueColor,
                           )
                         ],
+                      ),
+                      SizedBox(
+                        height: 24,
                       ),
                     ],
                   ),

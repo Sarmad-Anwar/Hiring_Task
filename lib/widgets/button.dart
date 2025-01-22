@@ -6,10 +6,12 @@ import 'package:hiring_task_1/utils/app_colors.dart';
 class Button extends StatelessWidget {
   final String btnName;
   final void Function() onTap;
+  final bool isLoading;
   const Button({
     super.key,
     required this.btnName,
     required this.onTap,
+    required this.isLoading,
   });
 
   @override
@@ -18,18 +20,33 @@ class Button extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.mehroonColor,
-          borderRadius: BorderRadius.circular(8),
+          color: AppColors.redColor,
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Text(btnName,
-                style: TextStyle(
-                    color: AppColors.whiteColor,
-                    fontFamily: "montserrat",
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (isLoading)
+                  SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(AppColors.whiteColor),
+                    ),
+                  )
+                else
+                  Text(btnName,
+                      style: TextStyle(
+                          color: AppColors.whiteColor,
+                          fontFamily: "urbanist",
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700)),
+              ],
+            ),
           ),
         ),
       ),

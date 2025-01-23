@@ -43,6 +43,7 @@ dependencies:
   cached_network_image: ^3.4.1
   dropdown_textfield: ^1.2.0
   intl_phone_field: ^3.2.0
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:

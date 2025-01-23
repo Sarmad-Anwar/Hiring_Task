@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.fromLTRB(37, 24, 40, 0),
-              height: Get.height * 0.35,
+              height: Get.height * 0.37,
               width: Get.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                       margin: EdgeInsets.only(top: 20),
                       padding:
                           EdgeInsets.symmetric(horizontal: 21, vertical: 19),
-                      height: 185,
+                      height: Get.height * 0.21,
                       width: Get.width,
                       decoration: BoxDecoration(
                         color: AppColors.whiteColor,

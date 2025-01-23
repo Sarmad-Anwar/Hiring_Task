@@ -13,85 +13,82 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProfileController());
-    return Scaffold(
-      backgroundColor: AppColors.whiteColor,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'My Profile',
-                    style: TextStyle(
-                        color: AppColors.blackColor2,
-                        fontFamily: "urbanist",
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Icon(Icons.menu)
-                ],
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: Get.width,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                          "assets/images/Group 2.png",
-                        ))),
-                        child: Column(
-                          children: [
-                            AppCacheImage(
-                              imageUrl:
-                                  UserbaseController.userData.avatar ?? "",
-                              height: 120,
-                              width: 120,
-                              round: 100,
-                            ),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text(
-                              "${UserbaseController.userData.firstName} ${UserbaseController.userData.lastName}",
-                              style: TextStyle(
-                                  color: AppColors.blackColor2,
-                                  fontFamily: "urbanist",
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              UserbaseController.userData.email ?? "",
-                              style: TextStyle(
-                                  color: AppColors.blackColor2,
-                                  fontFamily: "urbanist",
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'My Profile',
+                  style: TextStyle(
+                      color: AppColors.blackColor2,
+                      fontFamily: "urbanist",
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700),
+                ),
+                Icon(Icons.menu)
+              ],
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                        "assets/images/Group 2.png",
+                      ))),
+                      child: Column(
                         children: [
-                          Container(
-                            height: 81,
-                            width: 180,
+                          AppCacheImage(
+                            imageUrl: UserbaseController.userData.avatar ?? "",
+                            height: 120,
+                            width: 120,
+                            round: 100,
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            "${UserbaseController.userData.firstName} ${UserbaseController.userData.lastName}",
+                            style: TextStyle(
+                                color: AppColors.blackColor2,
+                                fontFamily: "urbanist",
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            UserbaseController.userData.email ?? "",
+                            style: TextStyle(
+                                color: AppColors.blackColor2,
+                                fontFamily: "urbanist",
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(vertical: 16),
                             decoration: BoxDecoration(
                                 color: AppColors.whiteColor,
                                 borderRadius: BorderRadius.circular(16),
@@ -125,9 +122,11 @@ class ProfileScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Container(
-                            height: 81,
-                            width: 180,
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(vertical: 16),
                             decoration: BoxDecoration(
                                 color: AppColors.whiteColor,
                                 borderRadius: BorderRadius.circular(16),
@@ -170,141 +169,141 @@ class ProfileScreen extends StatelessWidget {
                                 )
                               ],
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Text(
-                        "About Me",
-                        style: TextStyle(
-                            color: AppColors.blackColor2,
-                            fontFamily: "urbanist",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      TextWithSeeMore(
-                          text: UserbaseController.userData.bio ?? ""),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Divider(
-                        height: 0,
-                        color: Color(0xffEEEEEE),
-                        thickness: 2,
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset("assets/icons/Group7.png"),
-                          SizedBox(
-                            width: 16,
                           ),
-                          Expanded(
-                            child: Text(
-                              "Business Location",
-                              style: TextStyle(
-                                  color: AppColors.blackColor2,
-                                  fontFamily: "urbanist",
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Text(
+                      "About Me",
+                      style: TextStyle(
+                          color: AppColors.blackColor2,
+                          fontFamily: "urbanist",
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    TextWithSeeMore(
+                        text: UserbaseController.userData.bio ?? ""),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Divider(
+                      height: 0,
+                      color: Color(0xffEEEEEE),
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset("assets/icons/Group7.png"),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Business Location",
+                            style: TextStyle(
+                                color: AppColors.blackColor2,
+                                fontFamily: "urbanist",
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
                           ),
-                          Icon(
-                            size: 20,
-                            Icons.arrow_forward_ios,
-                            color: AppColors.blueColor,
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Divider(
-                        height: 0,
-                        color: Color(0xffEEEEEE),
-                        thickness: 2,
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset("assets/icons/Group7.png"),
-                          SizedBox(
-                            width: 16,
+                        ),
+                        Icon(
+                          size: 20,
+                          Icons.arrow_forward_ios,
+                          color: AppColors.blueColor,
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Divider(
+                      height: 0,
+                      color: Color(0xffEEEEEE),
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset("assets/icons/Group7.png"),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Bookings",
+                            style: TextStyle(
+                                color: AppColors.blackColor2,
+                                fontFamily: "urbanist",
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
                           ),
-                          Expanded(
-                            child: Text(
-                              "Bookings",
-                              style: TextStyle(
-                                  color: AppColors.blackColor2,
-                                  fontFamily: "urbanist",
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                        ),
+                        Icon(
+                          size: 20,
+                          Icons.arrow_forward_ios,
+                          color: AppColors.blueColor,
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Divider(
+                      height: 0,
+                      color: Color(0xffEEEEEE),
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset("assets/icons/Group 8.png"),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Expanded(
+                          child: Text(
+                            "My Services",
+                            style: TextStyle(
+                                color: AppColors.blackColor2,
+                                fontFamily: "urbanist",
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
                           ),
-                          Icon(
-                            size: 20,
-                            Icons.arrow_forward_ios,
-                            color: AppColors.blueColor,
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Divider(
-                        height: 0,
-                        color: Color(0xffEEEEEE),
-                        thickness: 2,
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset("assets/icons/Group 8.png"),
-                          SizedBox(
-                            width: 16,
-                          ),
-                          Expanded(
-                            child: Text(
-                              "My Services",
-                              style: TextStyle(
-                                  color: AppColors.blackColor2,
-                                  fontFamily: "urbanist",
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                          Icon(
-                            size: 20,
-                            Icons.arrow_forward_ios,
-                            color: AppColors.blueColor,
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                    ],
-                  ),
+                        ),
+                        Icon(
+                          size: 20,
+                          Icons.arrow_forward_ios,
+                          color: AppColors.blueColor,
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                  ],
                 ),
               ),
-              Button(
-                isLoading: false,
-                btnName: "logout",
-                onTap: controller.logout,
-              ),
-            ],
-          ),
+            ),
+            Button(
+              isLoading: false,
+              btnName: "logout",
+              onTap: controller.logout,
+            ),
+          ],
         ),
       ),
     );
